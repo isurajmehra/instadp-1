@@ -70,6 +70,7 @@
 
 		function getUrl() {
 			userName = uField.value;
+			userName = userName.toLowerCase();
 			var request = new XMLHttpRequest();
 			request.addEventListener("load", function(evt){
 				document.querySelector('span').style.display = 'block';
