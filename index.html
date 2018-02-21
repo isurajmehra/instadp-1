@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="View anyone's instagram profile pic in HD and download it for free. See Instagram DP in HD. Instagram profie pic/ DP in full size.">
 </head>
-<body>
+<body onkeypress="javascript:key(event);">
 
 	<div class="wrapper">
 		<div class="sidenav-section">
@@ -61,6 +61,12 @@
 		var replaceStr;
 
 		onPress.addEventListener('click', getUrl);
+		
+		function key(e) {
+			if(e === 13) {
+				getUrl();
+			}
+		}
 
 		function getUrl() {
 			userName = uField.value;
