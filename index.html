@@ -76,9 +76,20 @@
 				document.querySelector('span').style.display = 'block';
 				 var create = document.createElement('img');
 				//if(evt.currentTarget.response.indexOf("The link you followed may be broken, or the page may have been removed.") != -1) {
-					var indexOne = evt.currentTarget.response.indexOf("https://scontent-bom1-1.cdninstagram.com/vp/");
-					var indexTwo = indexOne + evt.currentTarget.response.slice(indexOne).indexOf(".jpg");
-					var imgURL = evt.currentTarget.response.slice(0, indexTwo + 4);
+					var s320, firstSlice, jpg, portionOne, secondSlice, scont;
+    
+    s320 = this.responseText.indexOf('s320x320');
+    firstSlice = this.responseText.slice(s320, );
+    jpg = firstSlice.indexOf('.jpg') + 4;
+    portionOne = firstSlice.slice(0, jpg);
+
+    
+    secondSlice = this.responseText.slice(0, s320);
+    secondSlice = secondSlice.split("").reverse().join("");
+    scont = secondSlice.slice(0,secondSlice.indexOf('sptth'));
+    scont = scont.split("").reverse().join("");
+    
+    var imgURL = 'https' + scont + portionOne;
 					insertImg[2].style.display = "block";
 					insertImg[2].src = imgURL;
 					insertImg[1].src = imgURL;
